@@ -1,36 +1,25 @@
 #!/usr/bin/env python3
+import operator
+
+ops = {
+	'+': operator.add,
+	'-': operator.sub,
+	'*': operator.mul,
+	'/': operator.floordiv,
+	'%': operator.mod
+}
 
 def calculate(arg):
 	stack = list()
 	for token in arg.split():
-		if token == '+':
-			arg1 = stack.pop()
-			arg2 = stack.pop()
-			result = arg1 + arg2
-			stack.append(result)
-		elif token == '-':
-			arg1 = stack.pop()
-			arg2 = stack.pop()
-			result = arg2 - arg1
-			stack.append(result)
-		elif token == '*':
-			arg1 = stack.pop()
-			arg2 = stack.pop()
-			result = arg1 * arg2
-			stack.append(result)
-		elif token == '/':
-			arg1 = stack.pop()
-			arg2 = stack.pop()
-			result = arg2 / arg1
-			stack.append(result)
-		elif token == '%':
-			arg1 = stack.pop()
-			arg2 = stack.pop()
-			result = arg2 % arg1
-			stack.append(result)
-		else:
+		try:
 			stack.append(int(token))
-	#print(stack)
+		except ValueError:
+			arg2 = stack.pop()
+			arg1 = stack.pop()
+			function = ops[token]
+			result = function(arg1, arg2)
+			stack.append(result)
 	return stack.pop()
 
 def main():
