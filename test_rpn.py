@@ -19,6 +19,9 @@ class TestBasics(unittest.TestCase):
 		result = rpn.calculate('16 8 /')
 		self.assertEqual(2, result) 
 
-	def test_mode(self):
+	def test_mod(self):
 		result = rpn.calculate('14 6 %')
 		self.assertEqual(2, result) 
+	def test_exp(self)
+		result = rpn.calculate('2 4 ^')
+		self.assertEqual(16, result)
