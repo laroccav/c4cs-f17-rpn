@@ -4,9 +4,8 @@ python:
 install:
  - pip install colorama
  - pip install coverage
- - pip install coveralls
+ - pip install python-coveralls
 script: 
- - make test
  - coverage run -m unittest
 after_sucess:
  - coveralls 
