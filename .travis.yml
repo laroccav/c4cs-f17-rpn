@@ -7,5 +7,5 @@ install:
  - pip install python-coveralls
 script: 
  - coverage run --source=rpn.py -m unittest
-after_sucess:
+after_success:
  - COVERAGE_REPO_TOKEN=kzzoeeaHnoQ8lvpk5od8yutm6FdO5gu9q coveralls 
