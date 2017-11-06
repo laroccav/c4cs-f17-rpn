@@ -5,6 +5,6 @@ install:
  - pip install colorama
 script: 
  - make test
- - coverage run rpn.py
+ - coverage run -m unittest
 after_sucess:
  - coveralls 
