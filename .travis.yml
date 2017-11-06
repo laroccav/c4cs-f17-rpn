@@ -2,7 +2,7 @@ language: python
 python:
  - "3.5"
 install:
- - python3.5 -m pip install coloroma 0.3.9
+ - pip install colorama
 script: 
  - make test
  - coverage run rpn.py
